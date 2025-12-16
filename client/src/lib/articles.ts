@@ -4,6 +4,7 @@
  */
 
 import { BlogArticle } from '@/types/blog';
+import { getAbsoluteBase } from '@/App';
 
 /**
  * Parse frontmatter from markdown content
@@ -73,7 +74,7 @@ function calculateReadingTime(content: string): number {
  */
 export async function loadArticle(slug: string): Promise<BlogArticle | null> {
   try {
-    const response = await fetch(`${import.meta.env.BASE_URL}articles/${slug}.md`);
+    const response = await fetch(`${getAbsoluteBase()}articles/${slug}.md`);
     if (!response.ok) return null;
 
     const content = await response.text();
@@ -118,7 +119,7 @@ export async function loadArticle(slug: string): Promise<BlogArticle | null> {
  */
 export async function loadAllArticles(): Promise<BlogArticle[]> {
   try {
-    const response = await fetch(`${import.meta.env.BASE_URL}articles/manifest.json`);
+    const response = await fetch(`${getAbsoluteBase()}articles/manifest.json`);
     if (!response.ok) return [];
 
     const manifest = await response.json();

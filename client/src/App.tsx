@@ -13,21 +13,28 @@ import TagsPage from "./pages/TagsPage";
 import TagPage from "./pages/TagPage";
 
 
-function getRouterBase() {
-  // When Vite base is relative ('./'), BASE_URL becomes './' in prod.
-  // Detect GitHub Pages subpath from URL pathname.
+/**
+ * Get the absolute base path for fetching resources.
+ * When Vite base is relative ('./'), we detect the repo name from the URL.
+ */
+export function getAbsoluteBase() {
   const baseUrl = import.meta.env.BASE_URL;
   if (baseUrl === './' || baseUrl === './') {
     // GitHub Pages project site: first path segment is repo name
     const parts = window.location.pathname.split('/').filter(Boolean);
     const knownRoutes = ['articles', 'article', 'categories', 'category', 'tags', 'tag', '404'];
     if (parts.length > 0 && !knownRoutes.includes(parts[0])) {
-      return `/${parts[0]}`;
+      return `/${parts[0]}/`;
     }
-    return '';
+    return '/';
   }
-  // Otherwise use Vite's BASE_URL (without trailing slash)
-  return baseUrl.replace(/\/$/, '');
+  // Otherwise use Vite's BASE_URL (ensure trailing slash)
+  return baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+}
+
+function getRouterBase() {
+  // Use getAbsoluteBase but remove trailing slash for router
+  return getAbsoluteBase().replace(/\/$/, '');
 }
 
 function Routes() {
