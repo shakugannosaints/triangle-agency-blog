@@ -15,11 +15,10 @@ interface ArticleCardProps {
 
 export default function ArticleCard({ article, featured = false }: ArticleCardProps) {
   return (
-    <Link href={`/article/${article.slug}`}>
-      <a className="block group">
-        <div
-          className={`card-minimal ${featured ? 'md:col-span-2 md:flex gap-6' : ''}`}
-        >
+    <Link href={`/article/${article.slug}`} className="block group">
+      <div
+        className={`card-minimal ${featured ? 'md:col-span-2 md:flex gap-6' : ''}`}
+      >
           {/* Featured Image (if featured) */}
           {featured && article.coverImage && (
             <div className="md:w-1/3 h-48 md:h-auto rounded-lg overflow-hidden bg-muted flex-shrink-0">
@@ -86,8 +85,7 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
               </span>
             </div>
           </div>
-        </div>
-      </a>
+      </div>
     </Link>
   );
 }

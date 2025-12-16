@@ -46,9 +46,7 @@ export default function ArticlePage() {
           <p className="text-muted-foreground mb-8">
             您要查找的文章不存在或已被删除。
           </p>
-          <Link href="/articles">
-            <a className="button-primary">返回文章列表</a>
-          </Link>
+          <Link href="/articles" className="button-primary">返回文章列表</Link>
         </div>
       </BlogLayout>
     );
@@ -61,13 +59,9 @@ export default function ArticlePage() {
         <div className="container py-12 md:py-16">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-            <Link href="/">
-              <a className="hover:text-accent transition-colors">首页</a>
-            </Link>
+            <Link href="/" className="hover:text-accent transition-colors">首页</Link>
             <span>/</span>
-            <Link href="/articles">
-              <a className="hover:text-accent transition-colors">文章</a>
-            </Link>
+            <Link href="/articles" className="hover:text-accent transition-colors">文章</Link>
             <span>/</span>
             <span>{article.title}</span>
           </div>
@@ -96,10 +90,12 @@ export default function ArticlePage() {
           {article.categories.length > 0 && (
             <div className="flex flex-wrap gap-2">
               {article.categories.map((category) => (
-                <Link key={category} href={`/category/${category}`}>
-                  <a className="inline-block px-4 py-2 bg-accent/10 text-accent rounded font-medium hover:bg-accent/20 transition-colors">
-                    {category}
-                  </a>
+                <Link
+                  key={category}
+                  href={`/category/${category}`}
+                  className="inline-block px-4 py-2 bg-accent/10 text-accent rounded font-medium hover:bg-accent/20 transition-colors"
+                >
+                  {category}
                 </Link>
               ))}
             </div>
@@ -133,10 +129,12 @@ export default function ArticlePage() {
                 <h3 className="text-sm font-semibold text-foreground mb-4">标签</h3>
                 <div className="flex flex-wrap gap-2">
                   {article.tags.map((tag) => (
-                    <Link key={tag} href={`/tag/${tag}`}>
-                      <a className="inline-block px-3 py-1 bg-muted text-muted-foreground rounded text-sm hover:bg-accent hover:text-accent-foreground transition-colors">
-                        #{tag}
-                      </a>
+                    <Link
+                      key={tag}
+                      href={`/tag/${tag}`}
+                      className="inline-block px-3 py-1 bg-muted text-muted-foreground rounded text-sm hover:bg-accent hover:text-accent-foreground transition-colors"
+                    >
+                      #{tag}
                     </Link>
                   ))}
                 </div>

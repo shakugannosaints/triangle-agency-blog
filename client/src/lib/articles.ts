@@ -73,7 +73,7 @@ function calculateReadingTime(content: string): number {
  */
 export async function loadArticle(slug: string): Promise<BlogArticle | null> {
   try {
-    const response = await fetch(`/articles/${slug}.md`);
+    const response = await fetch(`${import.meta.env.BASE_URL}articles/${slug}.md`);
     if (!response.ok) return null;
 
     const content = await response.text();
@@ -118,7 +118,7 @@ export async function loadArticle(slug: string): Promise<BlogArticle | null> {
  */
 export async function loadAllArticles(): Promise<BlogArticle[]> {
   try {
-    const response = await fetch('/articles/manifest.json');
+    const response = await fetch(`${import.meta.env.BASE_URL}articles/manifest.json`);
     if (!response.ok) return [];
 
     const manifest = await response.json();

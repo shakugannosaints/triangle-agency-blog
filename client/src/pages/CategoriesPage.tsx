@@ -47,10 +47,12 @@ export default function CategoriesPage() {
           ) : (
             <div className="flex flex-wrap gap-3">
               {categories.map(([category, count]) => (
-                <Link key={category} href={`/category/${encodeURIComponent(category)}`}>
-                  <a className="px-4 py-2 rounded font-medium transition-colors bg-muted text-muted-foreground hover:bg-accent/10">
-                    {category}（{count}）
-                  </a>
+                <Link
+                  key={category}
+                  href={`/category/${encodeURIComponent(category)}`}
+                  className="px-4 py-2 rounded font-medium transition-colors bg-muted text-muted-foreground hover:bg-accent/10"
+                >
+                  {category}（{count}）
                 </Link>
               ))}
             </div>

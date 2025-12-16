@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Router as WouterRouter, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
@@ -13,20 +13,32 @@ import TagsPage from "./pages/TagsPage";
 import TagPage from "./pages/TagPage";
 
 
-function Router() {
+function getRouterBase() {
+  const baseUrl = import.meta.env.BASE_URL;
+  if (baseUrl.startsWith("/")) return baseUrl.replace(/\/$/, "");
+  if (import.meta.env.DEV) return "";
+
+  const top = new Set(["", "articles", "article", "categories", "category", "tags", "tag", "404"]);
+  const first = window.location.pathname.replace(/^\/+/, "").split("/")[0] ?? "";
+  return first && !top.has(first) ? `/${first}` : "";
+}
+
+function Routes() {
   return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/articles"} component={ArticlesPage} />
-      <Route path={"/article/:slug"} component={ArticlePage} />
-      <Route path={"/categories"} component={CategoriesPage} />
-      <Route path={"/category/:category"} component={CategoryPage} />
-      <Route path={"/tags"} component={TagsPage} />
-      <Route path={"/tag/:tag"} component={TagPage} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
+    <WouterRouter base={getRouterBase()}>
+      <Switch>
+        <Route path={"/"} component={Home} />
+        <Route path={"/articles"} component={ArticlesPage} />
+        <Route path={"/article/:slug"} component={ArticlePage} />
+        <Route path={"/categories"} component={CategoriesPage} />
+        <Route path={"/category/:category"} component={CategoryPage} />
+        <Route path={"/tags"} component={TagsPage} />
+        <Route path={"/tag/:tag"} component={TagPage} />
+        <Route path={"/404"} component={NotFound} />
+        {/* Final fallback route */}
+        <Route component={NotFound} />
+      </Switch>
+    </WouterRouter>
   );
 }
 
@@ -44,7 +56,7 @@ function App() {
       >
         <TooltipProvider>
           <Toaster />
-          <Router />
+          <Routes />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

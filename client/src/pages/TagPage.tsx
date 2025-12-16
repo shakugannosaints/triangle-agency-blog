@@ -29,13 +29,9 @@ export default function TagPage() {
       <section className="bg-card border-b border-border py-12 md:py-16">
         <div className="container">
           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-            <Link href="/">
-              <a className="hover:text-accent transition-colors">首页</a>
-            </Link>
+            <Link href="/" className="hover:text-accent transition-colors">首页</Link>
             <span>/</span>
-            <Link href="/tags">
-              <a className="hover:text-accent transition-colors">标签</a>
-            </Link>
+            <Link href="/tags" className="hover:text-accent transition-colors">标签</Link>
             <span>/</span>
             <span>#{tagName}</span>
           </div>
@@ -62,9 +58,7 @@ export default function TagPage() {
               <p className="text-muted-foreground mb-8">
                 该标签下暂时没有文章。
               </p>
-              <Link href="/tags">
-                <a className="button-primary">返回标签列表</a>
-              </Link>
+              <Link href="/tags" className="button-primary">返回标签列表</Link>
             </div>
           ) : (
             <>

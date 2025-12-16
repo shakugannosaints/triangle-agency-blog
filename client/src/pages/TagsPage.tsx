@@ -47,10 +47,12 @@ export default function TagsPage() {
           ) : (
             <div className="flex flex-wrap gap-3">
               {tags.map(([tag, count]) => (
-                <Link key={tag} href={`/tag/${encodeURIComponent(tag)}`}>
-                  <a className="px-4 py-2 rounded font-medium transition-colors bg-muted text-muted-foreground hover:bg-accent/10">
-                    #{tag}（{count}）
-                  </a>
+                <Link
+                  key={tag}
+                  href={`/tag/${encodeURIComponent(tag)}`}
+                  className="px-4 py-2 rounded font-medium transition-colors bg-muted text-muted-foreground hover:bg-accent/10"
+                >
+                  #{tag}（{count}）
                 </Link>
               ))}
             </div>

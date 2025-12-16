@@ -29,13 +29,9 @@ export default function CategoryPage() {
       <section className="bg-card border-b border-border py-12 md:py-16">
         <div className="container">
           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-            <Link href="/">
-              <a className="hover:text-accent transition-colors">首页</a>
-            </Link>
+            <Link href="/" className="hover:text-accent transition-colors">首页</Link>
             <span>/</span>
-            <Link href="/categories">
-              <a className="hover:text-accent transition-colors">分类</a>
-            </Link>
+            <Link href="/categories" className="hover:text-accent transition-colors">分类</Link>
             <span>/</span>
             <span>{categoryName}</span>
           </div>
@@ -62,9 +58,7 @@ export default function CategoryPage() {
               <p className="text-muted-foreground mb-8">
                 该分类下暂时没有文章。
               </p>
-              <Link href="/categories">
-                <a className="button-primary">返回分类列表</a>
-              </Link>
+              <Link href="/categories" className="button-primary">返回分类列表</Link>
             </div>
           ) : (
             <>

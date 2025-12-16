@@ -26,38 +26,28 @@ export default function BlogLayout({
           <div className="container py-6">
             <div className="flex items-center justify-between">
               {/* Logo & Title */}
-              <Link href="/">
-                <a className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-                  {/* Triangle Icon */}
-                  <div className="w-8 h-8 triangle-icon triangle-accent" />
-                  <div>
-                    <h1 className="text-2xl font-bold text-foreground">三角机构</h1>
-                    <p className="text-sm text-muted-foreground">博客 & 文章</p>
-                  </div>
-                </a>
+              <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                {/* Triangle Icon */}
+                <div className="w-8 h-8 triangle-icon triangle-accent" />
+                <div>
+                  <h1 className="text-2xl font-bold text-foreground">三角机构</h1>
+                  <p className="text-sm text-muted-foreground">博客 & 文章</p>
+                </div>
               </Link>
 
               {/* Navigation */}
               <nav className="hidden md:flex items-center gap-8">
-                <Link href="/">
-                  <a className="text-foreground hover:text-accent transition-colors font-medium">
-                    首页
-                  </a>
+                <Link href="/" className="text-foreground hover:text-accent transition-colors font-medium">
+                  首页
                 </Link>
-                <Link href="/articles">
-                  <a className="text-foreground hover:text-accent transition-colors font-medium">
-                    文章
-                  </a>
+                <Link href="/articles" className="text-foreground hover:text-accent transition-colors font-medium">
+                  文章
                 </Link>
-                <Link href="/categories">
-                  <a className="text-foreground hover:text-accent transition-colors font-medium">
-                    分类
-                  </a>
+                <Link href="/categories" className="text-foreground hover:text-accent transition-colors font-medium">
+                  分类
                 </Link>
-                <Link href="/tags">
-                  <a className="text-foreground hover:text-accent transition-colors font-medium">
-                    标签
-                  </a>
+                <Link href="/tags" className="text-foreground hover:text-accent transition-colors font-medium">
+                  标签
                 </Link>
               </nav>
             </div>
@@ -92,24 +82,16 @@ export default function BlogLayout({
                 <h4 className="font-semibold mb-4">快速链接</h4>
                 <ul className="space-y-2 text-sm">
                   <li>
-                    <Link href="/">
-                      <a className="text-accent hover:underline">首页</a>
-                    </Link>
+                    <Link href="/" className="text-accent hover:underline">首页</Link>
                   </li>
                   <li>
-                    <Link href="/articles">
-                      <a className="text-accent hover:underline">全部文章</a>
-                    </Link>
+                    <Link href="/articles" className="text-accent hover:underline">全部文章</Link>
                   </li>
                   <li>
-                    <Link href="/categories">
-                      <a className="text-accent hover:underline">分类</a>
-                    </Link>
+                    <Link href="/categories" className="text-accent hover:underline">分类</Link>
                   </li>
                   <li>
-                    <Link href="/tags">
-                      <a className="text-accent hover:underline">标签</a>
-                    </Link>
+                    <Link href="/tags" className="text-accent hover:underline">标签</Link>
                   </li>
                 </ul>
               </div>
