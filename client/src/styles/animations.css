@@ -1,0 +1,166 @@
+/**
+ * Animation and Transition Styles
+ * Minimal corporate style with subtle interactions
+ */
+
+@layer components {
+  /* Smooth transitions for interactive elements */
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    transition-property: color, background-color, border-color, box-shadow, opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  /* Card hover effect */
+  .card-minimal {
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-minimal:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Button interactions */
+  .button-primary,
+  .button-secondary {
+    position: relative;
+    overflow: hidden;
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .button-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(215, 38, 61, 0.15);
+  }
+
+  .button-primary:active {
+    transform: translateY(0);
+  }
+
+  .button-secondary:hover {
+    background-color: rgba(215, 38, 61, 0.05);
+  }
+
+  /* Link hover effect */
+  a {
+    position: relative;
+  }
+
+  /* Fade in animation for page content */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  main {
+    animation: fadeIn 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Stagger animation for article cards */
+  .grid > * {
+    animation: fadeIn 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .grid > *:nth-child(2) {
+    animation-delay: 50ms;
+  }
+
+  .grid > *:nth-child(3) {
+    animation-delay: 100ms;
+  }
+
+  .grid > *:nth-child(4) {
+    animation-delay: 150ms;
+  }
+
+  .grid > *:nth-child(5) {
+    animation-delay: 200ms;
+  }
+
+  .grid > *:nth-child(6) {
+    animation-delay: 250ms;
+  }
+
+  /* Input focus effect */
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+    border-color: var(--agency-red);
+    box-shadow: 0 0 0 3px rgba(215, 38, 61, 0.1);
+  }
+
+  /* Triangle icon animation */
+  .triangle-icon {
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  a:hover .triangle-icon {
+    transform: scale(1.1);
+  }
+
+  /* Underline animation for links */
+  a:not(.button-primary):not(.button-secondary) {
+    text-decoration: none;
+    position: relative;
+  }
+
+  a:not(.button-primary):not(.button-secondary)::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--agency-red);
+    transition: width 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  a:not(.button-primary):not(.button-secondary):hover::after {
+    width: 100%;
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Loading animation */
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+
+  /* Pulse animation */
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
