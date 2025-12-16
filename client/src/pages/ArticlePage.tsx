@@ -158,7 +158,7 @@ export default function ArticlePage() {
             <div className="flex-1">
               <h3 className="text-lg font-bold text-foreground mb-2">{article.author}</h3>
               <p className="text-muted-foreground">
-                三角机构博客贡献者。热衷于分享游戏中的知识和故事。
+                一个游戏玩家。
               </p>
             </div>
           </div>

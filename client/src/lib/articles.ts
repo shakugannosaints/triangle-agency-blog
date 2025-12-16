@@ -10,7 +10,9 @@ import { BlogArticle } from '@/types/blog';
  * Expects YAML frontmatter between --- delimiters at the start of the file
  */
 function parseFrontmatter(content: string): { frontmatter: Record<string, any>; body: string } {
-  const frontmatterRegex = /^---\n([\s\S]*?)\n---\n([\s\S]*)$/;
+  // Support both LF and CRLF line endings and be resilient to optional BOM/leading whitespace.
+  // This will match a YAML frontmatter block starting with `---` at the beginning of the file.
+  const frontmatterRegex = /^\s*---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/m;
   const match = content.match(frontmatterRegex);
 
   if (!match) {
@@ -21,24 +23,33 @@ function parseFrontmatter(content: string): { frontmatter: Record<string, any>; 
   const body = match[2];
 
   const frontmatter: Record<string, any> = {};
-  const lines = frontmatterStr.split('\n');
+  // Split using either LF or CRLF
+  const lines = frontmatterStr.split(/\r?\n/);
 
-  for (const line of lines) {
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    if (!line || line.startsWith('#')) continue; // skip empty or comment lines
+
     const colonIndex = line.indexOf(':');
     if (colonIndex > -1) {
       const key = line.substring(0, colonIndex).trim();
       let value: any = line.substring(colonIndex + 1).trim();
 
-      // Parse YAML values
+      // Parse boolean
       if (value === 'true') {
         value = true;
       } else if (value === 'false') {
         value = false;
       } else if (value.startsWith('[') && value.endsWith(']')) {
+        // Simple array parsing: [a, b, 'c']
         value = value
           .slice(1, -1)
           .split(',')
-          .map((v: string) => v.trim().replace(/^['"\s]|['"\s]$/g, ''));
+          .map((v: string) => v.trim().replace(/^['"\s]+|['"\s]+$/g, ''))
+          .filter((v: string) => v.length > 0);
+      } else {
+        // strip surrounding quotes if present
+        value = value.replace(/^['\"]|['\"]$/g, '');
       }
 
       frontmatter[key] = value;

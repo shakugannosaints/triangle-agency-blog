@@ -4,12 +4,13 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "vite --host",
-    "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
+    "dev": "node scripts/generate-manifest.js && vite --host",
+    "build": "node scripts/generate-manifest.js && vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
     "start": "NODE_ENV=production node dist/index.js",
     "preview": "vite preview --host",
     "check": "tsc --noEmit",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "manifest": "node scripts/generate-manifest.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

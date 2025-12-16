@@ -39,12 +39,11 @@ export default function Home() {
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              探索三角机构的世界
+              探索叙事的边界
             </h1>
 
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              关于三角机构桌面角色扮演游戏的文章、见解和故事集。深入了解异常现象、任务以及
-              维系一切的神秘组织。
+              关于三角机构桌面角色扮演游戏的文章、想法和故事集。
             </p>
 
             <div className="flex gap-4">
@@ -112,19 +111,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-accent/5 border-t border-border">
-        <div className="container text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold mb-6">加入社区</h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            与三角机构社区分享你的故事、见解和经验。
-            贡献你自己的文章，帮助扩展这个知识库。
-          </p>
-          <button className="button-primary">
-            了解如何贡献
-          </button>
-        </div>
-      </section>
     </BlogLayout>
   );
 }
