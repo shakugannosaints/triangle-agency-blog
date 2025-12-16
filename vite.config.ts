@@ -13,7 +13,9 @@ export default defineConfig({
   // GitHub Pages 部署配置
   // 如果部署到 https://username.github.io/，base 设为 '/'
   // 如果部署到 https://username.github.io/repo-name/，base 设为 '/repo-name/'
-  base: process.env.GITHUB_PAGES ? '/triangle-agency-blog/' : '/',
+  // Use repo-root base when CI sets GITHUB_PAGES, otherwise use relative paths
+  // so assets resolve correctly when the site is served under a subpath.
+  base: process.env.GITHUB_PAGES ? '/triangle-agency-blog/' : './',
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
