@@ -13,8 +13,7 @@ export default defineConfig({
   // GitHub Pages 部署配置
   // 如果部署到 https://username.github.io/，base 设为 '/'
   // 如果部署到 https://username.github.io/repo-name/，base 设为 '/repo-name/'
-  // 为了同时兼容根域与子路径部署，GitHub Pages 使用相对 base（生成 ./assets/...）。
-  base: process.env.GITHUB_PAGES ? './' : '/',
+  base: process.env.GITHUB_PAGES ? '/triangle-agency-blog/' : '/',
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),

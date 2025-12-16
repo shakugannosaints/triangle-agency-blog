@@ -5,6 +5,7 @@
  */
 
 import { useEffect, useState } from 'react';
+import { Link } from 'wouter';
 import BlogLayout from '@/components/BlogLayout';
 import ArticleCard from '@/components/ArticleCard';
 import { loadAllArticles } from '@/lib/articles';
@@ -47,12 +48,8 @@ export default function Home() {
             </p>
 
             <div className="flex gap-4">
-              <a href="/articles" className="button-primary">
-                开始阅读
-              </a>
-              <a href="/categories" className="button-secondary">
-                浏览分类
-              </a>
+              <Link href="/articles" className="button-primary">开始阅读</Link>
+              <Link href="/categories" className="button-secondary">浏览分类</Link>
             </div>
           </div>
         </div>
@@ -103,9 +100,7 @@ export default function Home() {
           {/* View All Button */}
           {recentArticles.length > 0 && (
             <div className="text-center mt-12">
-              <a href="/articles" className="button-primary">
-                查看全部文章
-              </a>
+              <Link href="/articles" className="button-primary">查看全部文章</Link>
             </div>
           )}
         </div>

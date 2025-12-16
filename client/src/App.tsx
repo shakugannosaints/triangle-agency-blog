@@ -14,13 +14,8 @@ import TagPage from "./pages/TagPage";
 
 
 function getRouterBase() {
-  const baseUrl = import.meta.env.BASE_URL;
-  if (baseUrl.startsWith("/")) return baseUrl.replace(/\/$/, "");
-  if (import.meta.env.DEV) return "";
-
-  const top = new Set(["", "articles", "article", "categories", "category", "tags", "tag", "404"]);
-  const first = window.location.pathname.replace(/^\/+/, "").split("/")[0] ?? "";
-  return first && !top.has(first) ? `/${first}` : "";
+  // wouter expects base without trailing slash.
+  return import.meta.env.BASE_URL.replace(/\/$/, "");
 }
 
 function Routes() {

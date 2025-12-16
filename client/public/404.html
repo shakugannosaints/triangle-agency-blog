@@ -15,7 +15,10 @@
       const search = window.location.search;
       const hash = window.location.hash;
       sessionStorage.setItem('spa-redirect', JSON.stringify({ path, search, hash }));
-      window.location.replace(window.location.origin + (window.location.pathname.split('/').slice(0, -1).join('/') || '/'));
+      const parts = window.location.pathname.split('/').filter(Boolean);
+      const isGithubProjectSite = window.location.hostname.endsWith('github.io') && parts.length > 0;
+      const basePath = isGithubProjectSite ? `/${parts[0]}/` : '/';
+      window.location.replace(window.location.origin + basePath);
     </script>
   </head>
 
