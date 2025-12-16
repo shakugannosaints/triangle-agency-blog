@@ -32,7 +32,7 @@ export default function ArticlePage() {
     return (
       <BlogLayout>
         <div className="container py-16 text-center">
-          <p className="text-muted-foreground">Loading article...</p>
+          <p className="text-muted-foreground">加载文章中...</p>
         </div>
       </BlogLayout>
     );
@@ -42,12 +42,12 @@ export default function ArticlePage() {
     return (
       <BlogLayout>
         <div className="container py-16 text-center">
-          <h1 className="text-3xl font-bold mb-4">Article Not Found</h1>
+          <h1 className="text-3xl font-bold mb-4">文章未找到</h1>
           <p className="text-muted-foreground mb-8">
-            The article you're looking for doesn't exist or has been removed.
+            您要查找的文章不存在或已被删除。
           </p>
           <Link href="/articles">
-            <a className="button-primary">Back to Articles</a>
+            <a className="button-primary">返回文章列表</a>
           </Link>
         </div>
       </BlogLayout>
@@ -62,11 +62,11 @@ export default function ArticlePage() {
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
             <Link href="/">
-              <a className="hover:text-accent transition-colors">Home</a>
+              <a className="hover:text-accent transition-colors">首页</a>
             </Link>
             <span>/</span>
             <Link href="/articles">
-              <a className="hover:text-accent transition-colors">Articles</a>
+              <a className="hover:text-accent transition-colors">文章</a>
             </Link>
             <span>/</span>
             <span>{article.title}</span>
@@ -80,14 +80,14 @@ export default function ArticlePage() {
             <div className="flex items-center gap-2">
               <span className="font-semibold text-foreground">{article.author}</span>
             </div>
-            <span>•</span>
+            <span>·</span>
             <time>{formatDate(article.date)}</time>
-            <span>•</span>
-            <span>{article.readingTime} min read</span>
+            <span>·</span>
+            <span>{article.readingTime} 分钟阅读</span>
             {article.lastModified && (
               <>
-                <span>•</span>
-                <span>Updated {formatDate(article.lastModified)}</span>
+                <span>·</span>
+                <span>更新于 {formatDate(article.lastModified)}</span>
               </>
             )}
           </div>
@@ -130,7 +130,7 @@ export default function ArticlePage() {
             {/* Tags */}
             {article.tags.length > 0 && (
               <div className="mt-12 pt-8 border-t border-border">
-                <h3 className="text-sm font-semibold text-foreground mb-4">Tags</h3>
+                <h3 className="text-sm font-semibold text-foreground mb-4">标签</h3>
                 <div className="flex flex-wrap gap-2">
                   {article.tags.map((tag) => (
                     <Link key={tag} href={`/tag/${tag}`}>
@@ -158,8 +158,7 @@ export default function ArticlePage() {
             <div className="flex-1">
               <h3 className="text-lg font-bold text-foreground mb-2">{article.author}</h3>
               <p className="text-muted-foreground">
-                Contributor to the Triangle Agency Blog. Passionate about sharing knowledge and
-                stories from the game.
+                三角机构博客贡献者。热衷于分享游戏中的知识和故事。
               </p>
             </div>
           </div>
@@ -171,10 +170,10 @@ export default function ArticlePage() {
         <div className="container max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold mb-8 flex items-center gap-3">
             <div className="w-5 h-5 triangle-icon triangle-accent" />
-            More Articles
+            更多文章
           </h2>
           <p className="text-muted-foreground">
-            Check back soon for more articles related to this topic.
+            敬请期待更多相关主题的文章。
           </p>
         </div>
       </section>

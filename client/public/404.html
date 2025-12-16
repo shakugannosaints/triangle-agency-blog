@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="description" content="三角机构博客 - 探索三角机构桌面角色扮演游戏的世界" />
+    <title>三角机构博客</title>
+    <script>
+      // GitHub Pages SPA 重定向
+      // 将路径信息保存到 sessionStorage，然后重定向到主页
+      const path = window.location.pathname;
+      const search = window.location.search;
+      const hash = window.location.hash;
+      sessionStorage.setItem('spa-redirect', JSON.stringify({ path, search, hash }));
+      window.location.replace(window.location.origin + (window.location.pathname.split('/').slice(0, -1).join('/') || '/'));
+    </script>
+  </head>
+
+  <body>
+    <noscript>请启用 JavaScript 以查看此网站。</noscript>
+  </body>
+
+</html>

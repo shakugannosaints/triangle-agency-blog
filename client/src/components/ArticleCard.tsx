@@ -36,8 +36,8 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
             {/* Meta Information */}
             <div className="flex items-center gap-3 mb-3">
               <time className="text-sm text-muted-foreground">{formatDate(article.date)}</time>
-              <span className="text-xs text-muted-foreground">•</span>
-              <span className="text-sm text-muted-foreground">{article.readingTime} min read</span>
+              <span className="text-xs text-muted-foreground">·</span>
+              <span className="text-sm text-muted-foreground">{article.readingTime} 分钟阅读</span>
             </div>
 
             {/* Title */}
@@ -82,7 +82,7 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
             {/* Read More Link */}
             <div className="mt-4 pt-4 border-t border-border">
               <span className="text-accent font-semibold text-sm group-hover:underline">
-                Read More →
+                阅读更多 →
               </span>
             </div>
           </div>

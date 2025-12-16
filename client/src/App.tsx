@@ -7,6 +7,10 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import ArticlesPage from "./pages/ArticlesPage";
 import ArticlePage from "./pages/ArticlePage";
+import CategoriesPage from "./pages/CategoriesPage";
+import CategoryPage from "./pages/CategoryPage";
+import TagsPage from "./pages/TagsPage";
+import TagPage from "./pages/TagPage";
 
 
 function Router() {
@@ -15,6 +19,10 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/articles"} component={ArticlesPage} />
       <Route path={"/article/:slug"} component={ArticlePage} />
+      <Route path={"/categories"} component={CategoriesPage} />
+      <Route path={"/category/:category"} component={CategoryPage} />
+      <Route path={"/tags"} component={TagsPage} />
+      <Route path={"/tag/:tag"} component={TagPage} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

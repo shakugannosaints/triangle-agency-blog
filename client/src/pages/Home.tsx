@@ -34,27 +34,26 @@ export default function Home() {
             <div className="flex items-center gap-3 mb-6">
               <div className="w-6 h-6 triangle-icon triangle-accent" />
               <span className="text-sm font-semibold text-accent uppercase tracking-wider">
-                Triangle Agency
+                三角机构
               </span>
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              Exploring the World of Triangle Agency
+              探索三角机构的世界
             </h1>
 
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              A collection of articles, insights, and stories about the Triangle Agency tabletop
-              role-playing game. Dive into the world of anomalies, missions, and the mysterious
-              organization that holds it all together.
+              关于三角机构桌面角色扮演游戏的文章、见解和故事集。深入了解异常现象、任务以及
+              维系一切的神秘组织。
             </p>
 
             <div className="flex gap-4">
-              <button className="button-primary">
-                Start Reading
-              </button>
-              <button className="button-secondary">
-                Browse Categories
-              </button>
+              <a href="/articles" className="button-primary">
+                开始阅读
+              </a>
+              <a href="/categories" className="button-secondary">
+                浏览分类
+              </a>
             </div>
           </div>
         </div>
@@ -66,7 +65,7 @@ export default function Home() {
           <div className="container">
             <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
               <div className="w-5 h-5 triangle-icon triangle-accent" />
-              Featured
+              精选文章
             </h2>
 
             <div className="grid grid-cols-1 gap-8">
@@ -83,16 +82,16 @@ export default function Home() {
         <div className="container">
           <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
             <div className="w-5 h-5 triangle-icon triangle-accent" />
-            Recent Articles
+            最新文章
           </h2>
 
           {loading ? (
             <div className="text-center py-12">
-              <p className="text-muted-foreground">Loading articles...</p>
+              <p className="text-muted-foreground">加载文章中...</p>
             </div>
           ) : recentArticles.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-muted-foreground">No articles found yet.</p>
+              <p className="text-muted-foreground">暂无文章。</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -106,7 +105,7 @@ export default function Home() {
           {recentArticles.length > 0 && (
             <div className="text-center mt-12">
               <a href="/articles" className="button-primary">
-                View All Articles
+                查看全部文章
               </a>
             </div>
           )}
@@ -116,13 +115,13 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-accent/5 border-t border-border">
         <div className="container text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold mb-6">Join the Community</h2>
+          <h2 className="text-3xl font-bold mb-6">加入社区</h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Share your stories, insights, and experiences with the Triangle Agency community.
-            Contribute your own articles and help grow this knowledge base.
+            与三角机构社区分享你的故事、见解和经验。
+            贡献你自己的文章，帮助扩展这个知识库。
           </p>
           <button className="button-primary">
-            Learn How to Contribute
+            了解如何贡献
           </button>
         </div>
       </section>

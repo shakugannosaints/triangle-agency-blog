@@ -31,8 +31,8 @@ export default function BlogLayout({
                   {/* Triangle Icon */}
                   <div className="w-8 h-8 triangle-icon triangle-accent" />
                   <div>
-                    <h1 className="text-2xl font-bold text-foreground">Triangle Agency</h1>
-                    <p className="text-sm text-muted-foreground">Blog & Articles</p>
+                    <h1 className="text-2xl font-bold text-foreground">三角机构</h1>
+                    <p className="text-sm text-muted-foreground">博客 & 文章</p>
                   </div>
                 </a>
               </Link>
@@ -41,22 +41,22 @@ export default function BlogLayout({
               <nav className="hidden md:flex items-center gap-8">
                 <Link href="/">
                   <a className="text-foreground hover:text-accent transition-colors font-medium">
-                    Home
+                    首页
                   </a>
                 </Link>
                 <Link href="/articles">
                   <a className="text-foreground hover:text-accent transition-colors font-medium">
-                    Articles
+                    文章
                   </a>
                 </Link>
                 <Link href="/categories">
                   <a className="text-foreground hover:text-accent transition-colors font-medium">
-                    Categories
+                    分类
                   </a>
                 </Link>
                 <Link href="/tags">
                   <a className="text-foreground hover:text-accent transition-colors font-medium">
-                    Tags
+                    标签
                   </a>
                 </Link>
               </nav>
@@ -79,36 +79,36 @@ export default function BlogLayout({
               <div>
                 <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
                   <div className="w-4 h-4 triangle-icon triangle-accent" />
-                  Triangle Agency
+                  三角机构
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  A blog dedicated to exploring the world of Triangle Agency tabletop role-playing game.
-                  Share insights, stories, and experiences from the game.
+                  一个致力于探索三角机构桌面角色扮演游戏世界的博客。
+                  分享游戏中的见解、故事和经验。
                 </p>
               </div>
 
               {/* Quick Links */}
               <div>
-                <h4 className="font-semibold mb-4">Quick Links</h4>
+                <h4 className="font-semibold mb-4">快速链接</h4>
                 <ul className="space-y-2 text-sm">
                   <li>
                     <Link href="/">
-                      <a className="text-accent hover:underline">Home</a>
+                      <a className="text-accent hover:underline">首页</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/articles">
-                      <a className="text-accent hover:underline">All Articles</a>
+                      <a className="text-accent hover:underline">全部文章</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/categories">
-                      <a className="text-accent hover:underline">Categories</a>
+                      <a className="text-accent hover:underline">分类</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/tags">
-                      <a className="text-accent hover:underline">Tags</a>
+                      <a className="text-accent hover:underline">标签</a>
                     </Link>
                   </li>
                 </ul>
@@ -116,12 +116,12 @@ export default function BlogLayout({
 
               {/* Info */}
               <div>
-                <h4 className="font-semibold mb-4">Information</h4>
+                <h4 className="font-semibold mb-4">关于</h4>
                 <p className="text-muted-foreground text-sm mb-4">
-                  This blog is built with React, TypeScript, and Tailwind CSS.
+                  本博客使用 React、TypeScript 和 Tailwind CSS 构建。
                 </p>
                 <p className="text-xs text-muted-foreground">
-                  © 2025 Triangle Agency Blog. All rights reserved.
+                  © 2025 三角机构博客。保留所有权利。
                 </p>
               </div>
             </div>
@@ -129,7 +129,7 @@ export default function BlogLayout({
             {/* Divider */}
             <div className="border-t border-border pt-8 text-center text-xs text-muted-foreground">
               <p>
-                Powered by{' '}
+                由{' '}
                 <a
                   href="https://github.com"
                   target="_blank"
@@ -138,6 +138,7 @@ export default function BlogLayout({
                 >
                   GitHub Pages
                 </a>
+                {' '}提供托管
               </p>
             </div>
           </div>

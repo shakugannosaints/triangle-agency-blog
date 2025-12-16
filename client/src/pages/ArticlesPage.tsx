@@ -49,11 +49,11 @@ export default function ArticlesPage() {
         <div className="container">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 flex items-center gap-3">
             <div className="w-8 h-8 triangle-icon triangle-accent" />
-            All Articles
+            全部文章
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            Explore our collection of articles about Triangle Agency. Use the filters below to
-            find what you're looking for.
+            探索我们关于三角机构的文章集。使用下方的筛选器来
+            找到你感兴趣的内容。
           </p>
         </div>
       </section>
@@ -65,7 +65,7 @@ export default function ArticlesPage() {
           <div className="mb-8">
             <input
               type="text"
-              placeholder="Search articles..."
+              placeholder="搜索文章..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full px-4 py-3 bg-card border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent"
@@ -76,7 +76,7 @@ export default function ArticlesPage() {
           {categories.size > 0 && (
             <div>
               <h3 className="text-sm font-semibold text-foreground mb-4 uppercase tracking-wider">
-                Categories
+                分类
               </h3>
               <div className="flex flex-wrap gap-3">
                 <button
@@ -87,7 +87,7 @@ export default function ArticlesPage() {
                       : 'bg-muted text-muted-foreground hover:bg-accent/10'
                   }`}
                 >
-                  All Articles
+                  全部文章
                 </button>
                 {Array.from(categories.entries()).map(([category, count]) => (
                   <button
@@ -113,15 +113,15 @@ export default function ArticlesPage() {
         <div className="container">
           {loading ? (
             <div className="text-center py-12">
-              <p className="text-muted-foreground">Loading articles...</p>
+              <p className="text-muted-foreground">加载文章中...</p>
             </div>
           ) : filteredArticles.length === 0 ? (
             <div className="text-center py-12">
-              <h2 className="text-2xl font-bold mb-4">No Articles Found</h2>
+              <h2 className="text-2xl font-bold mb-4">未找到文章</h2>
               <p className="text-muted-foreground mb-8">
                 {searchQuery
-                  ? `No articles match your search for "${searchQuery}"`
-                  : 'No articles available in this category'}
+                  ? `没有与“${searchQuery}”匹配的文章`
+                  : '此分类下暂无文章'}
               </p>
               {(searchQuery || selectedCategory) && (
                 <button
@@ -131,14 +131,14 @@ export default function ArticlesPage() {
                   }}
                   className="button-primary"
                 >
-                  Clear Filters
+                  清除筛选
                 </button>
               )}
             </div>
           ) : (
             <>
               <div className="mb-8 text-sm text-muted-foreground">
-                Showing {filteredArticles.length} article{filteredArticles.length !== 1 ? 's' : ''}
+                显示 {filteredArticles.length} 篇文章
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {filteredArticles.map((article) => (
