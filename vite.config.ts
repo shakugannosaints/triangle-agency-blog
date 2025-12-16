@@ -11,9 +11,8 @@ const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(
 export default defineConfig({
   plugins,
   // GitHub Pages 部署配置
-  // 如果部署到 https://username.github.io/，base 设为 '/'
-  // 如果部署到 https://username.github.io/repo-name/，base 设为 '/repo-name/'
-  base: process.env.GITHUB_PAGES ? '/triangle-agency-blog/' : '/',
+  // 使用相对路径 './' 让资源在任何子路径下都能正确加载
+  base: process.env.GITHUB_PAGES ? './' : '/',
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),

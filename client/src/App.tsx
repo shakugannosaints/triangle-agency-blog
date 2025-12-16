@@ -14,8 +14,20 @@ import TagPage from "./pages/TagPage";
 
 
 function getRouterBase() {
-  // wouter expects base without trailing slash.
-  return import.meta.env.BASE_URL.replace(/\/$/, "");
+  // When Vite base is relative ('./'), BASE_URL becomes './' in prod.
+  // Detect GitHub Pages subpath from URL pathname.
+  const baseUrl = import.meta.env.BASE_URL;
+  if (baseUrl === './' || baseUrl === './') {
+    // GitHub Pages project site: first path segment is repo name
+    const parts = window.location.pathname.split('/').filter(Boolean);
+    const knownRoutes = ['articles', 'article', 'categories', 'category', 'tags', 'tag', '404'];
+    if (parts.length > 0 && !knownRoutes.includes(parts[0])) {
+      return `/${parts[0]}`;
+    }
+    return '';
+  }
+  // Otherwise use Vite's BASE_URL (without trailing slash)
+  return baseUrl.replace(/\/$/, '');
 }
 
 function Routes() {
